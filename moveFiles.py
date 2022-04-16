@@ -51,7 +51,8 @@ def findFolder(filename):
         "WD": "NORZAN_SA",
         "WE": "SANZEN_SA",
         "WS": "SMauro_SA",
-        "WL": "THIENE_SA"
+        "WL": "THIENE_SA",
+        "JJ": "TESTO1_SA"
     }
     dir = filename[:2]
     return acroyms[dir]
