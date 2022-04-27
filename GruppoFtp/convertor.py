@@ -12,7 +12,7 @@ line_end = 67
 file_path = __file__
 
 def convertXml():
-    path = file_path[:len(file_path)-(len(__name__)+4)]+"\\FilesSA\\"
+    path = file_path[:len(file_path)-(len(__name__)+4)]+"/FilesSA/"
     
     file_paths = [f for f in listdir(path) if isfile(join(path, f))]
     
@@ -61,7 +61,7 @@ def indent(elem, level=0):
             elem.tail = i
 
 def deleteTxt():
-    dir = os.getcwd() + "\\FilesSA"
+    dir = os.getcwd() + "/FilesSA"
 
     files = os.listdir(dir)
     filestxt = [file for file in files if file.endswith(".txt")]

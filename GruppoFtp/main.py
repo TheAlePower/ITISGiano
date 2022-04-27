@@ -10,7 +10,7 @@ def dowloadFile():
     yesterday = datetime.strftime(datetime.now() - timedelta(1), '%d%m%y')  # data di ieri
     befyesterday = datetime.strftime(datetime.now() - timedelta(2), '%d%m%y')  # data l'altro ieri
 
-    dir = os.getcwd() + "\\FilesSA"
+    dir = os.getcwd() + "/FilesSA"
     if not os.path.exists(dir):
         os.mkdir(dir)
 
@@ -35,8 +35,8 @@ def dowloadFile():
 
                 file.close()
 
-                currDir = os.getcwd() + '\\'+ filename
-                destDir = os.getcwd() + '\\FilesSA\\' + filename
+                currDir = os.getcwd() + '/'+ filename
+                destDir = os.getcwd() + '/FilesSA/' + filename
 
                 moveFiles(currDir, destDir)
 
@@ -56,7 +56,7 @@ def main():
 
 def delOutdateFiles():
     data = datetime.strftime(datetime.now() - timedelta(3), '%d%m%y')
-    path = os.getcwd() + "\\FilesSaXml"
+    path = os.getcwd() + "/FilesSaXml"
 
     files = os.listdir(path)
 

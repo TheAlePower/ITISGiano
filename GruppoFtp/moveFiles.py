@@ -2,7 +2,7 @@ import os
 
 
 def createDirs():
-    dir = os.getcwd() + "\\FilesSaXml"
+    dir = os.getcwd() + "/FilesSaXml"
     if not os.path.exists(dir):
         os.mkdir(dir)
 
@@ -17,7 +17,7 @@ def createDirs():
     #print(dir)
 
     for folder in folders:
-        dir = os.getcwd() + "\\" + folder
+        dir = os.getcwd() + "/" + folder
         if not os.path.exists(dir):
             os.mkdir(dir)
 
@@ -25,13 +25,13 @@ def createDirs():
 def moveXmls():
     os.chdir("..")
 
-    path = os.getcwd() + "\\FilesSA"
+    path = os.getcwd() + "/FilesSA"
     files = os.listdir(path)
 
     for file in files:
         folder = findFolder(file)
-        destpath = os.getcwd() + f"\\FilesSaXml\\{folder}\\{file}"
-        filepath = path + f"\\{file}"
+        destpath = os.getcwd() + f"/FilesSaXml/{folder}/{file}"
+        filepath = path + f"/{file}"
 
         os.replace(filepath, destpath)
 
