@@ -56,14 +56,21 @@ def main():
     print("Esecuzione terminata, prossima esecuzione tra 24 ore...")
 
 def delOutdateFiles():
-    data = datetime.strftime(datetime.now() - timedelta(3), '%d%m%y')
+    data = datetime.strftime(datetime.now() - timedelta(5), '%d%m%y')
     path = os.getcwd() + "/FilesSaXml"
 
-    files = os.listdir(path)
+    for folder in folders:
+        currentpath = path + folder
+        files = os.listdir(currentpath)
 
-    for file in files:
-        if data in file:
-            os.remove(file)
+        try:
+            for file in files:
+                filename = f"{currentpath}/{file}"
+                print(filename)
+                if data in file:
+                    os.remove(filename)
+        except:
+            print("Qualcosa è andato storto")
 
 if __name__ == '__main__':
     timeSpan = 86400
