@@ -52,6 +52,7 @@ def main():
     dowloadFile()
     convertor.startConversion()
     move.setFolders()
+    delOutdateFiles()
     print("Esecuzione terminata, prossima esecuzione tra 24 ore...")
 
 def delOutdateFiles():
