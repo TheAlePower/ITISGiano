@@ -66,7 +66,6 @@ def delOutdateFiles():
         try:
             for file in files:
                 filename = f"{currentpath}/{file}"
-                print(filename)
                 if data in file:
                     os.remove(filename)
         except:
