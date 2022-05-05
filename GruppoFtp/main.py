@@ -55,7 +55,7 @@ def main():
     print("Esecuzione terminata, prossima esecuzione tra 24 ore...")
 
 def delOutdateFiles():
-    data = datetime.strftime(datetime.now() - timedelta(5), '%d%m%y')    #data risalente a 5 giorni fa
+    data = datetime.strftime(datetime.now() - timedelta(3), '%d%m%y')    #data risalente a 5 giorni fa
     path = os.getcwd() + "/FilesSaXml"
 
     for folder in folders:               
