@@ -377,38 +377,4 @@ public class ListaDiListe {
             RiempiLista(a.getNextList());
         }
     }
-    
-    /* -- MAIN -- */
-    public static void main (String[] args) {
-        //MAIN DI PROVA
-        ListaDiListe grafo = new ListaDiListe();
-        grafo.createList();
-        grafo.RiempiLista(grafo.getHead());
-        grafo.Stampa2(grafo.getHead());
-
-        /*DateFormat dateFormat = new SimpleDateFormat("dd/MM/yy");
-        Date date = new Date();
-        String [] current_date = dateFormat.format(date).split("/");
-
-        for (int i = 0; i < current_date.length; i++) {
-            System.out.print(current_date[i]);
-        }*/
-
-        /*LocalDate dBefore = LocalDate.parse("20180521", DateTimeFormatter.BASIC_ISO_DATE);
-        LocalDate dAfter = LocalDate.parse("20220530", DateTimeFormatter.BASIC_ISO_DATE);
-
-        long diff = dBefore.until(dAfter,ChronoUnit.DAYS);
-        System.out.println("difference is : " + diff + " days");*/
-
-        /*String path1 = new File("C:/Users/Admin/Desktop/PC/Scuola/TPSIT/Progetto Giano/FilesSaXml/I3EME__SA").getAbsolutePath();
-        String path2 = "./FilesSaXml/I3EME__SA";
-
-        File f = new File(path1);
-        /*String prova [] = f.list();
-        for (int i = 0; i < prova.length; i++) {
-            System.out.println(prova[i]);
-        }
-        System.out.println(f.exists());
-        System.out.println(path1);*/
-    }
 }
