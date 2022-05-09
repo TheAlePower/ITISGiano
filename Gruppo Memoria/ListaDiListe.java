@@ -223,7 +223,7 @@ public class ListaDiListe {
             entity = new File(dir);
         }else if (a.getStazione().equals("WE")) {
             //dir = "./FilesSaXml/SANZEN_SA/";
-            dir = "./FilesSaXml/I3EME__SA/";
+            dir = "./FilesSaXml/SANZEN_SA/";
             entity = new File(dir);
         }else if (a.getStazione().equals("XI")) {
             dir = "./FilesSaXml/IU3IAH_SA/";
@@ -247,7 +247,7 @@ public class ListaDiListe {
             dir = "./FilesSaXml/NORZAN_SA/";
             entity = new File(dir);
         }else if (a.getStazione().equals("XA")){
-            dir = "./FilesSaXml/I5NQK__SA/";
+            dir = "./FilesSaXml/IK1XHH_SA/";
             entity = new File(dir);
         }else if (a.getStazione().equals("WG")) {
             dir = "./FilesSaXml/I5NQK__SA/";
