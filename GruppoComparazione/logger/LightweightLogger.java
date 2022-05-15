@@ -21,7 +21,11 @@ public class LightweightLogger {
     public static void writeLog(String log) {
         try {
             FileWriter out = new FileWriter(outputFile,true);
-            out.append(log).append("\n");
+            out.append(
+                    "["
+                    + LocalDateTime.now().getYear() + "_" +  LocalDateTime.now().getMonth() + "_" + LocalDateTime.now().getDayOfMonth() + "@" + LocalDateTime.now().getHour() + "_" + LocalDateTime.now().getMinute() + "_" + LocalDateTime.now().getSecond()
+                    + "]"
+                    + log).append("\n");
             out.close();
             System.out.println(log);
         } catch (IOException abcdefg) {}

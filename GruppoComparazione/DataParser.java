@@ -3,7 +3,8 @@ import java.util.List;
 
 public class DataParser {
     // The divisor / data size. DO NOT remove the final as this will break everything
-    private int divisor;
+    private final int divisor;
+    private int amount = 0;
 
     private List<Float> rx1 = new ArrayList<>();
     private List<Float> rx2 = new ArrayList<>();
@@ -15,8 +16,11 @@ public class DataParser {
 
     private XMLReader data;
 
+    public DataParser(int divisor) {
+        this.divisor = divisor;
+    }
+
     public void pushData(XMLReader data) {
-        divisor++;
         this.data = data;
 
         for (int i = 0; i < data.getDataSize(); i++) {
@@ -50,6 +54,7 @@ public class DataParser {
                 att.set(i,Float.parseFloat(data.ATTgetAtValue(i))/divisor);
             }
         }
+        amount++;
     }
 
     // Getters and setters
@@ -76,7 +81,7 @@ public class DataParser {
     }
 
     public int getAmountOfParsedXMLs() {
-        return divisor;
+        return amount;
     }
 
     public XMLReader getData() {

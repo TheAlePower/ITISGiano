@@ -18,12 +18,10 @@ import static logger.LightweightLogger.writeLog;
 
 public class XMLWriter {
 
-    private Document document;
-
-    public void write(DataParser dp,String outputPath) throws ParserConfigurationException, TransformerException, IOException {
+    public static void write(DataParser dp,String outputPath) throws ParserConfigurationException, TransformerException, IOException {
         // Init phase
+        new File(outputPath).mkdirs();
         Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
-        this.document = doc;
         Node node = doc.createElement("Values");
         doc.appendChild(node);
 

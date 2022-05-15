@@ -38,28 +38,14 @@ public class XMLReader {
     }
 
     public Thread reload() throws ParserConfigurationException, IOException, SAXException {
+        doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new File(inputFilename));
         // Reads the XML into objects
         Thread runner = new Thread() {
             @Override
             public void run() {
-                DocumentBuilder db = null;
-                try {
-                    db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-                } catch (ParserConfigurationException e) {
-                    e.printStackTrace();
-                }
-                try {
-                    doc = db.parse(new File(inputFilename));
-                } catch (SAXException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
                 doc.getDocumentElement().normalize();
 
-
                 value = (NodeList) doc.getElementsByTagName("Value");
-
                 RX1 = (NodeList) doc.getElementsByTagName("intensRX1");
                 RX2 = (NodeList) doc.getElementsByTagName("intensRX2");
                 SDRX1 = (NodeList) doc.getElementsByTagName("SDRX1");
@@ -68,6 +54,7 @@ public class XMLReader {
             }
         };
 
+        runner.start();
         return runner;
     }
 
