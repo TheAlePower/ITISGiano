@@ -21,6 +21,7 @@ public class XMLWriter {
     public static void write(DataParser dp,String outputPath) throws ParserConfigurationException, TransformerException, IOException {
         // Init phase
         new File(outputPath).mkdirs();
+
         Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
         Node node = doc.createElement("Values");
         doc.appendChild(node);

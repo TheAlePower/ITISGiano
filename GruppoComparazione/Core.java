@@ -66,6 +66,7 @@ public class Core {
 
         // Task loop, loops for each list and works with that
         Nodo currentSet = ldl.getHead();
+
         while (currentSet != null) {
             writeLog("Saving station " + currentSet.getStazione());
             saveFile(currentSet);
@@ -139,20 +140,25 @@ public class Core {
         DataParser yesterdayParser = new DataParser(yesterdayReaders.size());
         DataParser dyesterdayParser = new DataParser(dyesterdayReaders.size());
 
-        System.gc();
 
-        for (int i = 0; i < yesterdayReaders.size(); i++) {
-            writeLog("Pushing data of " + yesterdayReaders.get(i).getInputFilename());
-            yesterdayParser.pushData(yesterdayReaders.get(i));
+
+        while (yesterdayReaders.size() > 0)  {
+            writeLog("Pushing data of " + yesterdayReaders.get(0).getInputFilename());
+            yesterdayParser.pushData(yesterdayReaders.get(0));
+            yesterdayReaders.remove(0);
+            System.gc();
         }
-        for (int i = 0; i < dyesterdayReaders.size(); i++) {
-            writeLog("Pushing data of " + dyesterdayReaders.get(i).getInputFilename());
-            dyesterdayParser.pushData(dyesterdayReaders.get(i));
+
+        while (dyesterdayReaders.size() > 0) {
+            writeLog("Pushing data of " + dyesterdayReaders.get(0).getInputFilename());
+            dyesterdayParser.pushData(dyesterdayReaders.get(0));
+            dyesterdayReaders.remove(0);
+            System.gc();
         }
 
         try {
-            XMLWriter.write(yesterdayParser,outputPath + "/" + inputNode.getIeri());
-            XMLWriter.write(dyesterdayParser,outputPath + "/" + inputNode.getAltroieri());
+            XMLWriter.write(yesterdayParser,outputPath + "/" + new File(inputNode.getIeri()).getName());
+            XMLWriter.write(dyesterdayParser,outputPath + "/" + new File(inputNode.getAltroieri()).getName());
         } catch (Exception e) {
             writeLog("---------------------------------------------------------------------------");
             writeLog("An unrecoverable exception has occurred and the program must be terminated");
