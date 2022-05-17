@@ -2,6 +2,8 @@
 
 package memgroup;
 
+import logger.LightweightLogger;
+
 import java.io.File;
 import java.time.LocalDateTime;
 
@@ -223,37 +225,37 @@ public class ListaDiListe {
         String directoryString = "";                // path relativa della directory
         File directory;                             // File che rappresenta la directory
 
-        if (a.getStazione().equals("WM")) {
+        if (a.getStazione().equals("WM")) {                         // Montb
             directoryString = "./FilesSaXml/I3EME__SA/";
 
-        } else if (a.getStazione().equals("WE")) {
+        } else if (a.getStazione().equals("WE")) {                  // Alano
             directoryString = "./FilesSaXml/SANZEN_SA/";
 
-        } else if (a.getStazione().equals("XI")) {                   // Hey siamo noi
+        } else if (a.getStazione().equals("XI")) {                  // Hey siamo noi
             directoryString = "./FilesSaXml/IU3IAH_SA/";
 
-        } else if (a.getStazione().equals("WL")) {
+        } else if (a.getStazione().equals("WL")) {                  // Thiene
             directoryString = "./FilesSaXml/THIENE_SA/";
 
-        } else if (a.getStazione().equals("WH")) {
+        } else if (a.getStazione().equals("WH")) {                  // Bosco chiusanuova
             directoryString = "./FilesSaXml/IQ3RK__SA/";
 
-        } else if (a.getStazione().equals("WP")) {
+        } else if (a.getStazione().equals("WP")) {                  // San M. di Saline
             directoryString = "./FilesSaXml/IU3CLX_SA/";
 
-        } else if (a.getStazione().equals("WA")) {
+        } else if (a.getStazione().equals("WA")) {                  // Sa M. di buonalbergo
             directoryString = "./FilesSaXml/BOSCON_SA/";
 
-        } else if (a.getStazione().equals("WS")) {
+        } else if (a.getStazione().equals("WS")) {                  // DdG
             directoryString = "./FilesSaXml/SMauro_SA/";
 
-        } else if (a.getStazione().equals("WD")) {
+        } else if (a.getStazione().equals("WD")) {                  // Sarzana
             directoryString = "./FilesSaXml/NORZAN_SA/";
 
-        } else if (a.getStazione().equals("XA")){
+        } else if (a.getStazione().equals("XA")){                   // Carrara
             directoryString = "./FilesSaXml/IK1XHH_SA/";
 
-        } else if (a.getStazione().equals("WG")) {
+        } else if (a.getStazione().equals("WG")) {                  // Altopascio
             directoryString = "./FilesSaXml/I5NQK__SA/";
 
         } else if (a.getStazione().equals("WF")) {

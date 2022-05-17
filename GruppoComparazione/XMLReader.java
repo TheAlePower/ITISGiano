@@ -1,4 +1,5 @@
 
+import logger.LightweightLogger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -15,6 +16,8 @@ import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
+import static logger.LightweightLogger.writeLog;
 
 public class XMLReader {
 
@@ -37,7 +40,13 @@ public class XMLReader {
         this.inputFilename = inputFilename;
     }
 
-    public Thread reload() throws ParserConfigurationException, IOException, SAXException {
+    public Thread load() throws ParserConfigurationException, IOException, SAXException {
+        writeLog("[Thread] Loading file > " + this.inputFilename + " < ...");
+
+        if (!new File(inputFilename).exists()) {
+            throw new IOException("File does not exist\nRaw file path > " + new File(inputFilename).getAbsolutePath());
+        }
+
         doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new File(inputFilename));
         // Reads the XML into objects
         Thread runner = new Thread() {

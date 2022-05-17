@@ -54,6 +54,7 @@ public class DataParser {
                 att.set(i,Float.parseFloat(data.ATTgetAtValue(i))/divisor);
             }
         }
+
         amount++;
     }
 
