@@ -136,6 +136,9 @@ public class Core {
     public static void saveMeshedFile(String inputFile) {
         XMLReader reader = new XMLReader(inputFile);
         Thread thread = null;
+
+        String key = String.valueOf(new File(inputFile).getName().toCharArray()[0]) + new File(inputFile).getName().toCharArray()[1];
+        writeLog("Save key > " + key);
         try {
             thread = reader.load();
         } catch (Exception e) {
@@ -157,7 +160,8 @@ public class Core {
         DataParser dataParser = new DataParser(1);
         dataParser.pushData(reader);
 
-        String output = names.containsKey(String.valueOf(inputFile.toCharArray()[0]) + inputFile.toCharArray()[1])?outputPath + "/" + names.get(String.valueOf(inputFile.toCharArray()[0]) + inputFile.toCharArray()[1]):outputPath + "/" + new File(inputFile).getName();
+
+        String output = names.containsKey(key)?outputPath + "/" + names.get(key):outputPath + "/" + new File(inputFile).getName();
         try {
             writeLog("Writing...");
             XMLWriter.write(dataParser,output);

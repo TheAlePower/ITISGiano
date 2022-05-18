@@ -28,10 +28,12 @@ public class XMLWriter {
 
 
         File outputFile = new File(outputPath);
-        writeLog("was an old file existing at the output path > " + outputFile.delete());
+        writeLog("was an old file existing at the output path > " + !outputFile.delete());
         writeLog("has new file been created correctly > " + outputFile.createNewFile());
 
         Node date = doc.createElement("date");
+
+        writeLog("Saving file " + outputFile.getAbsolutePath());
 
         String dateValue = "";
         for (int i = 2; i < 8; i++) { dateValue += new File(dp.getData().getInputFilename()).getName().toCharArray()[i]; }
